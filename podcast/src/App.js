@@ -4,9 +4,16 @@ import { jwtDecode } from 'jwt-decode';
 
 function App() {
   const [user, setUser ] = useState({});
+  const [loggedIn, setLoggedIn] = useState(false);
+
   const handleCallBack = (res) => {
     let user = jwtDecode(res.credential);
     setUser(user);
+    setLoggedIn(true);
+  }
+
+  const handleLogOut = () => {
+    setLoggedIn(false);
   }
   
 
@@ -21,16 +28,19 @@ function App() {
       document.getElementById("SignIn"),
       { theme: 'outline', size: 'large'}
     )
-},[]);
+},[loggedIn]);
 
   return (
     <div className="App">
       <h1>Podcast App</h1>
       <div id="SignIn"></div>
-      { user && <>
-        <img src={user.picture} alt='profile picture' width={50} height={50} />
-        <p>{user.name}</p>
-      </>}
+      {loggedIn ? (<>
+        <img src={user.picture} alt='profile' width={50} height={50} />
+        <p>Hey there! {user.given_name}</p>
+        <button onClick={handleLogOut}>Logout</button>
+      </>) : (<>
+        <div id='SignIn'></div>
+      </>)}
     </div>
   );
 }
