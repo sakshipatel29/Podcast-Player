@@ -1,6 +1,8 @@
 import './App.css';
 import { useEffect, useState } from 'react';
 import { jwtDecode } from 'jwt-decode';
+import { UserContext } from './contexts/UserContext';
+import Header from './Header';
 
 function App() {
   const [user, setUser ] = useState({});
@@ -11,11 +13,6 @@ function App() {
     setUser(user);
     setLoggedIn(true);
   }
-
-  const handleLogOut = () => {
-    setLoggedIn(false);
-  }
-  
 
   useEffect(()=>{
     /*global google */
@@ -31,17 +28,9 @@ function App() {
 },[loggedIn]);
 
   return (
-    <div className="App">
-      <h1>Podcast App</h1>
-      <div id="SignIn"></div>
-      {loggedIn ? (<>
-        <img src={user.picture} alt='profile' width={50} height={50} />
-        <p>Hey there! {user.given_name}</p>
-        <button onClick={handleLogOut}>Logout</button>
-      </>) : (<>
-        <div id='SignIn'></div>
-      </>)}
-    </div>
+    <UserContext.Provider value={[user, setUser]}>
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+    </UserContext.Provider>
   );
 }
 
