@@ -1,11 +1,14 @@
 import './App.css';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { jwtDecode } from 'jwt-decode';
 
 function App() {
-
+  const [user, setUser ] = useState({});
   const handleCallBack = (res) => {
-    console.log("Encoded Token:" + res.credential);
+    let user = jwtDecode(res.credential);
+    setUser(user);
   }
+  
 
   useEffect(()=>{
     /*global google */
@@ -24,6 +27,10 @@ function App() {
     <div className="App">
       <h1>Podcast App</h1>
       <div id="SignIn"></div>
+      { user && <>
+        <img src={user.picture} alt='profile picture' width={50} height={50} />
+        <p>{user.name}</p>
+      </>}
     </div>
   );
 }
