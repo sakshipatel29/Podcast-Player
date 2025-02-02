@@ -55,6 +55,9 @@ function App() {
   return (
     <UserContext.Provider value={[user, setUser]}>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} signInButton={signInButton} />
+      {loggedIn ? (
+        <>
+      <div>
       <h2>Accidental Tech Podcast</h2>
       {data.map((ep,i) => 
       <Episode 
@@ -65,6 +68,11 @@ function App() {
         mp3={ep.mp3}
       />
       )}
+      </div>
+      </>
+      ) : <>
+        <h3>Add something promotional here...</h3>
+      </>}
     </UserContext.Provider>
   );
 }
