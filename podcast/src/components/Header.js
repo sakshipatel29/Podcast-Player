@@ -1,7 +1,8 @@
-import React, { useContext, useState } from 'react'
-import { UserContext } from './contexts/UserContext';
+import React, { useContext } from 'react'
+import { UserContext } from '../contexts/UserContext';
 
-const Header = ({ loggedIn, setLoggedIn }) => {
+
+const Header = ({ loggedIn, setLoggedIn, signInButton }) => {
     const [user, setUser] = useContext(UserContext);
 
     const handleLogOut = () => {
@@ -17,7 +18,7 @@ const Header = ({ loggedIn, setLoggedIn }) => {
                 <p>Hey there! {user.given_name}</p>
                 <button onClick={handleLogOut}>Logout</button>
             </>) : (<>
-                <div id='SignIn'></div>
+                <div ref={signInButton}></div>
             </>)}
         </div>
     )
