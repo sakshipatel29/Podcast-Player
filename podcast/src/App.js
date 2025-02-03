@@ -1,6 +1,6 @@
 import './App.css';
 import { useEffect, useState, useRef } from 'react';
-import jwtDecode from 'jwt-decode'; // Removed destructuring for proper import
+import { jwtDecode } from 'jwt-decode';
 import { UserContext } from './contexts/UserContext';
 import Header from './components/Header';
 import Episode from './components/Episode';
