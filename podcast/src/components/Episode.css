@@ -1,0 +1,62 @@
+.episode-container {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  
+  .episode-details {
+    text-align: left;
+    margin-bottom: 15px;
+  }
+  
+  .episode-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .episode-title:hover {
+    color: #007bff;
+  }
+  
+  .audio-player {
+    margin-top: 10px;
+    width: 100%;
+  }
+  
+  .episode-date {
+    font-size: 0.9rem;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .notes-section {
+    margin-top: 20px;
+  }
+  
+  .notes-label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .notes-textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border 0.3s;
+  }
+  
+  .notes-textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+  
