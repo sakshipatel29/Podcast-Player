@@ -28,7 +28,7 @@ Welcome to my **Podcast Player App**! This project is built using **ReactJS** an
 ## 📦 Installation & Setup  
 To run this project locally:  
 ```bash
-git clone https://github.com/your-username/podcast-player.git  
+git clone https://github.com/sakshipatel29/Podcast-Player.git 
 cd podcast-player  
 npm install  
 npm start  
